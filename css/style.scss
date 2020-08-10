@@ -274,7 +274,7 @@ button {
   }
 }
 @mixin barra($url, $alineacionY) {
-  background: url(/img/#{$url});
+  background: url(../img/#{$url});
   background-position: center $alineacionY;
   background-size: cover;
   @include cel {
@@ -706,8 +706,8 @@ video {
 }
 
 #plusvaliaBanner {
-  background: url(/img/mapaVector.svg) no-repeat,
-    url(/img/fondoFamiliaPlusvalia.jpg) no-repeat, $negro;
+  background: url(../img/mapaVector.svg) no-repeat,
+    url(../img/fondoFamiliaPlusvalia.jpg) no-repeat, $negro;
   height: 45vh;
   max-height: 400px;
   background-position: 3% center, right 20%;
@@ -722,8 +722,8 @@ video {
   }
 
   @include cel {
-    background: url(/img/mapaVector.svg) no-repeat,
-      url(/img/fondoFamiliaPlusvalia_cel.jpg) no-repeat, $negro;
+    background: url(../img/mapaVector.svg) no-repeat,
+      url(../img/fondoFamiliaPlusvalia_cel.jpg) no-repeat, $negro;
     height: 65vh;
     max-height: none;
     background-position: top, bottom;
@@ -736,7 +736,7 @@ video {
 }
 
 #exitoBanner {
-  background: url(/img/exitoBanner.jpg) no-repeat, $negro;
+  background: url(../img/exitoBanner.jpg) no-repeat, $negro;
   height: 45vh;
   max-height: 400px;
   background-position: right;
@@ -751,7 +751,7 @@ video {
   }
 
   @include cel {
-    background: url(/img/exitoBannerCel.jpg) no-repeat, $negro;
+    background: url(../img/exitoBannerCel.jpg) no-repeat, $negro;
     height: 65vh;
     max-height: none;
     background-position: bottom;

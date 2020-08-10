@@ -815,7 +815,7 @@ video {
 }
 
 .cuerpo #barraHome {
-  background: url(/img/barraLatHome.jpg);
+  background: url(../img/barraLatHome.jpg);
   background-position: center bottom;
   background-size: cover;
 }
@@ -827,7 +827,7 @@ video {
 }
 
 .cuerpo #barraMaster {
-  background: url(/img/masterplanBarra.jpg);
+  background: url(../img/masterplanBarra.jpg);
   background-position: center bottom;
   background-size: cover;
 }
@@ -839,7 +839,7 @@ video {
 }
 
 .cuerpo #barraAmenidades {
-  background: url(/img/barraAmenidades.jpg);
+  background: url(../img/barraAmenidades.jpg);
   background-position: center bottom;
   background-size: cover;
 }
@@ -851,7 +851,7 @@ video {
 }
 
 .cuerpo #barraTorres {
-  background: url(/img/barraTorres.jpg);
+  background: url(../img/barraTorres.jpg);
   background-position: center center;
   background-size: cover;
 }
@@ -954,7 +954,7 @@ video {
 }
 
 #plusvaliaBanner {
-  background: url(/img/mapaVector.svg) no-repeat, url(/img/fondoFamiliaPlusvalia.jpg) no-repeat, #323232;
+  background: url(../img/mapaVector.svg) no-repeat, url(../img/fondoFamiliaPlusvalia.jpg) no-repeat, #323232;
   height: 45vh;
   max-height: 400px;
   background-position: 3% center, right 20%;
@@ -979,7 +979,7 @@ video {
 
 @media (max-width: 479px) {
   #plusvaliaBanner {
-    background: url(/img/mapaVector.svg) no-repeat, url(/img/fondoFamiliaPlusvalia_cel.jpg) no-repeat, #323232;
+    background: url(../img/mapaVector.svg) no-repeat, url(../img/fondoFamiliaPlusvalia_cel.jpg) no-repeat, #323232;
     height: 65vh;
     max-height: none;
     background-position: top, bottom;
@@ -1009,7 +1009,7 @@ video {
 }
 
 #exitoBanner {
-  background: url(/img/exitoBanner.jpg) no-repeat, #323232;
+  background: url(../img/exitoBanner.jpg) no-repeat, #323232;
   height: 45vh;
   max-height: 400px;
   background-position: right;
@@ -1034,7 +1034,7 @@ video {
 
 @media (max-width: 479px) {
   #exitoBanner {
-    background: url(/img/exitoBannerCel.jpg) no-repeat, #323232;
+    background: url(../img/exitoBannerCel.jpg) no-repeat, #323232;
     height: 65vh;
     max-height: none;
     background-position: bottom;
