@@ -1,0 +1,22 @@
+[
+  {
+    "nombre": "Nivel 1",
+    "url": "img/plantas/torreC_1.jpeg"
+  },
+  {
+    "nombre": "Nivel 2",
+    "url": "img/plantas/torreC_2.jpeg"
+  },
+  {
+    "nombre": "Nivel 3",
+    "url": "img/plantas/torreC_3.jpeg"
+  },
+  {
+    "nombre": "Nivel 4",
+    "url": "img/plantas/torreC_4.jpeg"
+  },
+  {
+    "nombre": "Nivel 5",
+    "url": "img/plantas/torreC_5.jpeg"
+  }
+]

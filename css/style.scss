@@ -1,0 +1,835 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100;300;400;700&display=swap");
+//vars
+
+$verde: #718f1f;
+$rojo: #ba0b12;
+$negro: #323232;
+$gris: #98979d;
+$azul: #5b81a8;
+$azulOscuro: #3f6892;
+$amarillo: #d5be0e;
+
+//reset
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+h1,
+h2 {
+  font-weight: 700;
+  font-family: "Sora", sans-serif;
+}
+h3 {
+  font-weight: 300;
+  font-family: "Sora", sans-serif;
+}
+
+p {
+  line-height: 1.6em;
+  font-weight: 100;
+  b {
+    font-weight: bold;
+    color: $azul;
+  }
+}
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+body {
+  font-family: Montserrat;
+  position: relative;
+  background-color: #e6e6e6;
+  color: $negro;
+  display: flex;
+  justify-content: center;
+  font-size: calc(100% + 0.1vw);
+}
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+// .minmax {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+//   grid-template-columns: repeat(auto-fit, minmax(max-content, 1fr));
+// }
+
+//media query
+$cel: 479px;
+$nocel: 479px;
+$tableta: 768px;
+$tableta-land: 1024px;
+$hd: 1600px;
+
+@mixin cel {
+  @media (max-width: #{$cel}) {
+    @content;
+  }
+}
+
+@mixin nocel {
+  @media (min-width: #{$nocel}) {
+    @content;
+  }
+}
+
+@mixin tableta_land {
+  @media (min-width: #{$tableta-land}) and (max-width: #{$hd - 1px}) {
+    @content;
+  }
+}
+
+@mixin tableta {
+  @media (min-width: #{$tableta - 1px}) and (max-width: #{$tableta-land - 1px}) {
+    @content;
+  }
+}
+
+@mixin hd {
+  @media (min-width: #{$hd}) {
+    @content;
+  }
+}
+.wrapper {
+  max-width: 1600px;
+  margin: 0.5em 1.5em 3.5em;
+}
+// icono de nav
+.menu-toggle {
+  display: none;
+  @include tableta {
+    display: block;
+    right: 2vh;
+    top: 1.5vh;
+  }
+  @include cel {
+    display: block;
+  }
+  position: fixed;
+  right: 2.2vh;
+  top: 2.1vh;
+  z-index: 520;
+  width: 30px;
+  height: 22px;
+  background: transparent;
+  border-top: 4px solid;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-bottom: 4px solid;
+  color: #fff;
+  font-size: 0;
+  -webkit-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+.menu-toggle:before,
+.menu-toggle:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: -webkit-transform 0.25s ease-in-out;
+  transition: -webkit-transform 0.25s ease-in-out;
+  -o-transition: transform 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+}
+
+button.is-active {
+  border-color: transparent;
+  border-left: none;
+}
+button.is-active:before {
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+  -ms-transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+button.is-active:after {
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+  -ms-transform: translate(-50%, -50%) rotate(-45deg);
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  vertical-align: middle;
+}
+
+.anima {
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+//grid
+.trescol {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.minmax {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  @include tableta {
+    grid-template-columns: repeat(1, minmax(300px, 1fr));
+  }
+}
+//mixins
+@mixin pacarta($gradienteA, $gradienteB, $colorBold, $borde) {
+  background: $gradienteA;
+  background: linear-gradient(38deg, $gradienteA, $gradienteB);
+  color: $borde;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20%;
+
+  h2 {
+    display: block;
+    border: solid 1px $borde;
+    padding: 1em;
+    text-align: center;
+    font-size: 1.9em;
+    font-weight: 100;
+    @include cel {
+      font-size: 1.2em;
+    }
+    span {
+      font-weight: bold;
+      color: $colorBold;
+    }
+  }
+}
+@mixin recuadrosTexto($color, $colorBold) {
+  display: block;
+  border: solid 1px $color;
+  padding: 1em;
+  text-align: center;
+  font-size: 1.9em;
+  font-weight: 100;
+  color: $color;
+  @include cel {
+    font-size: 1.2em;
+  }
+  span {
+    font-weight: bold;
+    color: $colorBold;
+  }
+}
+@mixin submenuBtn($fondo, $colorSpan, $colorFuente) {
+  color: $colorFuente;
+  background: $fondo;
+  height: 15vh;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3em;
+  @extend .anima;
+  &:hover {
+   background: $rojo;
+  }
+  span {
+    color: $colorSpan;
+  }
+  li{
+    padding: 0.5em 0;
+  }
+}
+@mixin barra($url, $alineacionY) {
+  background: url(/img/#{$url});
+  background-position: center $alineacionY;
+  background-size: cover;
+  @include cel {
+    height: 30vh;
+  }
+}
+//nav
+#barraNav {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 3fr;
+  align-items: center;
+  font-family: "Sora", sans-serif;
+  img {
+    @extend .anima;
+    grid-row: 1/ -1;
+    grid-column: 1 / -1;
+    padding-left: 1.5em;
+    width: 9%;
+  }
+  ul {
+    @extend .anima;
+    background: $gris;
+    background: linear-gradient(
+      90deg,
+      rgba(152, 151, 157, 1) 0%,
+      rgba(77, 93, 109, 1) 5%,
+      rgba(152, 151, 157, 1) 11%
+    );
+    grid-row: 1 / span 1;
+    grid-column: 1 / -1;
+    display: flex;
+    width: 100%;
+    height: 70px;
+    justify-content: space-evenly;
+    align-items: stretch;
+    padding-left: 8em;
+    li {
+      display: inherit;
+      align-items: center;
+      font-size: 0.9em;
+      a {
+        @extend .anima;
+        border-bottom: solid 0px $gris;
+        &:hover {
+          color: $negro;
+          font-weight: bold;
+        }
+      }
+      .activo {
+        color: $negro;
+        font-weight: bold;
+      }
+      // &:hover {
+      //   border-bottom: solid 3px $amarillo;
+      // }
+    }
+  }
+}
+
+@include tableta() {
+  #barraNav {
+    transform: translateY(1.5em);
+    img {
+      width: 12%;
+      position: absolute;
+      left: 0em;
+      top: -1.3em;
+    }
+    ul {
+      overflow: hidden;
+      flex-direction: column;
+      height: 50px;
+      justify-content: center;
+      align-items: center;
+      padding-left: 0;
+      background: $gris;
+      background: linear-gradient(
+        90deg,
+        rgba(152, 151, 157, 1) 0%,
+        rgba(77, 93, 109, 1) 8%,
+        rgba(152, 151, 157, 1) 15%
+      );
+
+      li {
+        font-size: 1em;
+        padding: 0.5em 0;
+        a {
+          color: $gris;
+        }
+      }
+    }
+  }
+
+  .abierto {
+    img {
+      width: 15% !important;
+      position: absolute;
+      left: calc(50% - 10%) !important;
+      top: 0;
+    }
+    ul {
+      height: 70vh !important;
+      background: $gris;
+      background-position: -55px !important;
+      li {
+        a {
+          color: #fff !important;
+        }
+      }
+    }
+  }
+}
+
+@include cel {
+  #barraNav {
+    transform: translateY(1.5em);
+    img {
+      width: 25%;
+      position: absolute;
+      left: 0em;
+      top: -1.3em;
+    }
+    ul {
+      background: linear-gradient(
+        90deg,
+        rgba(152, 151, 157, 1) 2%,
+        rgba(77, 93, 109, 1) 14%,
+        rgba(152, 151, 157, 1) 32%
+      );
+      overflow: hidden;
+      flex-direction: column;
+      height: 50px;
+      justify-content: center;
+      align-items: center;
+      padding-left: 0;
+
+      li {
+        font-size: 1em;
+        padding: 0.5em 0;
+        a {
+          color: $gris;
+        }
+      }
+    }
+  }
+
+  .abierto {
+    img {
+      position: absolute;
+      left: calc(50% - 15%) !important;
+      top: 0;
+    }
+    ul {
+      height: 92vh !important;
+      background-position: -50px !important;
+
+      li {
+        a {
+          color: #fff !important;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background: $gris;
+  background: linear-gradient(
+    90deg,
+    rgba(152, 151, 157, 1) 44%,
+    rgba(77, 93, 109, 1) 50%,
+    rgba(152, 151, 157, 1) 56%
+  );
+  height: 70px;
+  margin-top: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #fff;
+  img {
+    position: absolute;
+    width: 7%;
+    height: auto;
+    justify-self: flex-end !important;
+  }
+  span {
+    font-size: 0.9em;
+    position: absolute;
+    right: 1.5em;
+  }
+}
+@include tableta() {
+  footer {
+    height: 50px;
+
+    img {
+      width: 8%;
+    }
+    span {
+      font-size: 0.7em;
+    }
+  }
+}
+@include cel {
+  footer {
+    height: 50px;
+    background: linear-gradient(
+      90deg,
+      rgba(152, 151, 157, 1) 35%,
+      rgba(77, 93, 109, 1) 50%,
+      rgba(152, 151, 157, 1) 65%
+    );
+
+    img {
+      width: 17%;
+    }
+    span {
+      font-size: 0.7em;
+    }
+  }
+}
+//anima el menu en mob
+// @keyframes logoMenu {
+//   0% {
+//   }
+// }
+// .animaMenu {
+// }
+
+//clases y id
+video {
+  width: 100% !important;
+  height: auto !important;
+  margin: 0;
+  padding: 0;
+}
+#play {
+  position: absolute;
+  width: 10%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  cursor: pointer;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.menospx{
+  margin-top: -10px!important;
+}
+.hero {
+  @extend .minmax;
+  margin-top: 0.6em;
+  .sliderNo {
+    grid-column: 1 / span 2;
+    margin-bottom: -5px;
+    @include cel {
+      height: 50vh;
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .videoTesti {
+    grid-column: 2 / span 2;
+    position: relative;
+    margin-bottom: -4px;
+    margin-top: -1px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .slider {
+    grid-column: 1 / span 2;
+    margin-bottom: -5px;
+    .item {
+      position: relative;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    @include cel {
+      order: 2;
+    }
+  }
+  #pancartaHome {
+    @include pacarta($azul, $azulOscuro, $amarillo, #fff);
+    @include cel {
+      order: 1;
+    }
+  }
+  #pancartaMaster {
+    @include pacarta($amarillo, #c3a20c, $negro, $negro);
+  }
+  #pancartaTestimoniales {
+    @include pacarta($amarillo, #c3a20c, #fff, #fff);
+  }
+}
+#submenu {
+  @extend .minmax;
+
+  .submenuA {
+    @include submenuBtn($amarillo, $negro, #fff);
+    .boton {
+      background: $negro;
+      color: $amarillo;
+      font-size: 1em;
+      padding: 0.2em 0.5em;
+      margin: 0.1em;
+    }
+  }
+  .submenuB {
+    @include submenuBtn($negro, $amarillo, #fff);
+  }
+  .submenuC {
+    @include submenuBtn($verde, $amarillo, #fff);
+    img{
+      width: 20px;
+      height: auto;
+      vertical-align: middle;
+    }
+    a:hover{
+      color: $amarillo;
+    }
+  }
+  .submenuAzul {
+    @include submenuBtn($azul, #fff, $negro);
+  }
+  .submenuAzulTorres {
+    @include submenuBtn($azul, #fff, #fff);
+  }
+  .submenuBlanco {
+    @include submenuBtn(#fff, #fff, $negro);
+    @include tableta {
+      display: none;
+    }
+    @include cel() {
+      display: none;
+    }
+  }
+}
+.cuerpo {
+  @extend .minmax;
+  background-color: #fff;
+  #barraHome {
+    @include barra("barraLatHome.jpg", bottom);
+  }
+  #barraMaster {
+    @include barra("masterplanBarra.jpg", bottom);
+  }
+  #barraAmenidades {
+    @include barra("barraAmenidades.jpg", bottom);
+  }
+  #barraTorres {
+    @include barra("barraTorres.jpg", center);
+  }
+  .info {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .wrap {
+    width: 60%;
+    padding: 10% 0;
+    @include cel {
+      width: 100%;
+      padding: 20% 10%;
+    }
+    h3 {
+      color: $azul;
+      font-weight: 300;
+      padding-bottom: 1.5em;
+      margin-bottom: 1.5em;
+      border-bottom: solid $azul 1px;
+    }
+  }
+
+  .wrap2Col {
+    padding: 10%;
+    flex: 1 0 200px;
+    align-self: flex-start;
+    @include cel {
+      width: 100%;
+      padding: 15% 10% 0;
+    }
+    h3 {
+      color: $azul;
+      font-weight: 300;
+      padding-bottom: 1.5em;
+      margin-bottom: 1.5em;
+      border-bottom: solid $azul 1px;
+    }
+    @include cel {
+      &:last-child {
+        margin-bottom: 15%;
+      }
+    }
+  }
+
+  .infoTxt {
+    span {
+      color: #8f8f8f;
+      font-size: 0.9em;
+    }
+    display: flex;
+    flex-wrap: wrap;
+    ul {
+      padding: 0 1em;
+      flex: 1;
+    }
+  }
+
+  li {
+    padding-bottom: 1em;
+    list-style: disc;
+    list-style-position: inside;
+  }
+}
+
+#plusvaliaBanner {
+  background: url(/img/mapaVector.svg) no-repeat,
+    url(/img/fondoFamiliaPlusvalia.jpg) no-repeat, $negro;
+  height: 45vh;
+  max-height: 400px;
+  background-position: 3% center, right 20%;
+  background-size: 35%, 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 32%;
+
+  @include tableta {
+    height: 32vh;
+  }
+
+  @include cel {
+    background: url(/img/mapaVector.svg) no-repeat,
+      url(/img/fondoFamiliaPlusvalia_cel.jpg) no-repeat, $negro;
+    height: 65vh;
+    max-height: none;
+    background-position: top, bottom;
+    background-size: 70%, 100%;
+  }
+  h2 {
+    // recuadrosTexto($color, $borde, $colorBold)
+    @include recuadrosTexto(#fff, $amarillo);
+  }
+}
+
+#exitoBanner {
+  background: url(/img/exitoBanner.jpg) no-repeat, $negro;
+  height: 45vh;
+  max-height: 400px;
+  background-position: right;
+  background-size: 70%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 8%;
+
+  @include tableta {
+    height: 32vh;
+  }
+
+  @include cel {
+    background: url(/img/exitoBannerCel.jpg) no-repeat, $negro;
+    height: 65vh;
+    max-height: none;
+    background-position: bottom;
+    background-size: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 25%;
+  }
+  h2 {
+    // recuadrosTexto($color, $borde, $colorBold)
+    @include recuadrosTexto(#fff, $amarillo);
+  }
+}
+
+.hhr{
+  color: $azul;
+  text-align: center;
+  padding: 2em 1em;
+}
+@mixin nivelesMix($color, $fondo) {
+background: $fondo;
+color: $color;
+grid-column: 1/span 1;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: flex-start;
+padding: 2em;
+h3{
+  flex: 1 1 100%;
+  font-weight: bold;
+  color: #fff;
+  border-bottom: solid 1px #fff;
+  padding-bottom: 0.5em;
+}
+ul{
+  display: flex;
+ // flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+li{
+  flex: 1 1 50%;
+  padding: 1em;
+  border: solid 1px #fff;
+  &:hover{
+  a{
+    display: inline-block;
+      color: $negro;
+      font-weight: bold;
+    }
+  }
+  
+}
+.btnactivo{
+  color: $negro;
+  font-weight: bold!important;
+}
+
+}
+
+
+.nivelesA{
+  @include nivelesMix("#fff", $azul);
+}
+.nivelesB{
+  @include nivelesMix($negro, $amarillo);
+}
+.nivelesC{
+  @include nivelesMix($negro, $verde);
+}
+.nivelesD{
+  @include nivelesMix($negro, $negro);
+}
+.planos{
+  grid-column: 2/ span 2;
+  display: flex;
+  padding: 2em;
+  justify-content: center;
+  background:#fff;
+}
