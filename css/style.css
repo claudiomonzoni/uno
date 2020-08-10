@@ -461,6 +461,12 @@ video {
   margin-top: -1px;
 }
 
+@media (max-width: 479px) {
+  .hero .videoTesti {
+    grid-column: 1 / -1;
+  }
+}
+
 .hero .videoTesti img {
   width: 100%;
   height: auto;
@@ -1081,7 +1087,7 @@ video {
   color: "#fff";
   -ms-grid-column: 1;
   -ms-grid-column-span: 1;
-  grid-column: 1/span 1;
+  grid-column: 1 /span 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1141,7 +1147,7 @@ video {
   color: #323232;
   -ms-grid-column: 1;
   -ms-grid-column-span: 1;
-  grid-column: 1/span 1;
+  grid-column: 1 /span 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1201,7 +1207,7 @@ video {
   color: #323232;
   -ms-grid-column: 1;
   -ms-grid-column-span: 1;
-  grid-column: 1/span 1;
+  grid-column: 1 /span 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1261,7 +1267,7 @@ video {
   color: #323232;
   -ms-grid-column: 1;
   -ms-grid-column-span: 1;
-  grid-column: 1/span 1;
+  grid-column: 1 /span 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1328,5 +1334,11 @@ video {
       -ms-flex-pack: center;
           justify-content: center;
   background: #fff;
+}
+
+@media (max-width: 479px) {
+  .planos {
+    grid-column: 1 / -1;
+  }
 }
 /*# sourceMappingURL=style.css.map */
