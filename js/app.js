@@ -101,55 +101,49 @@ carga = (url) => {
     });
 };
 
-
 generar = (btnes) => {
- 
   //inserto primer imagen
   planos.src = btnes[0].url;
-  niveles.innerHTML = ""
+  niveles.innerHTML = "";
   let botones = "";
   btnes.forEach((btn) => {
-
     const boton = document.createElement("li");
     boton.innerHTML = `<a href="#" data-url="${btn.url}">${btn.nombre}</a>`;
     //childnode para llegar al anchor y no quedarme el li
     boton.childNodes[0].addEventListener("click", (e) => {
       e.preventDefault();
-      quitarCssActivo()
-      e.target.classList.add("btnactivo")
-      planos.src = e.target.dataset.url
+      quitarCssActivo();
+      e.target.classList.add("btnactivo");
+      planos.src = e.target.dataset.url;
     });
 
     niveles.appendChild(boton);
   });
   //obtengo un array de todos los botones y los elimino
 
-  quitarCssActivo = () =>{
-    const todosNiveles = document.querySelectorAll("#BtnesNiveles li a")
-    for(i=0; i < todosNiveles.length; i++){
-      todosNiveles[i].classList.remove("btnactivo")
+  quitarCssActivo = () => {
+    const todosNiveles = document.querySelectorAll("#BtnesNiveles li a");
+    for (i = 0; i < todosNiveles.length; i++) {
+      todosNiveles[i].classList.remove("btnactivo");
     }
-  
-  }
-
+  };
 };
 
-document.querySelector("#torreA").addEventListener("click", function(e){
-  e.preventDefault()
-  carga("img/plantas/torreA.json")
-  nivelesCss.classList.remove("nivelesB", "nivelesC", "nivelesD")
-  nivelesCss.classList.add("nivelesA")
-  nivelesCssH3.textContent ="TORRE A"
+document.querySelector("#torreA").addEventListener("click", function (e) {
+  e.preventDefault();
+  carga("img/plantas/torreA.json");
+  nivelesCss.classList.remove("nivelesB", "nivelesC", "nivelesD");
+  nivelesCss.classList.add("nivelesA");
+  nivelesCssH3.textContent = "TORRE A";
+});
 
-})
-
-document.querySelector("#torreB").addEventListener("click", function(e){
-  e.preventDefault()
-  carga("img/plantas/torreB.json")
-  nivelesCss.classList.remove("nivelesA", "nivelesC", "nivelesD")
-  nivelesCss.classList.add("nivelesB")
-  nivelesCssH3.textContent ="TORRE B"
-})
+document.querySelector("#torreB").addEventListener("click", function (e) {
+  e.preventDefault();
+  carga("img/plantas/torreB.json");
+  nivelesCss.classList.remove("nivelesA", "nivelesC", "nivelesD");
+  nivelesCss.classList.add("nivelesB");
+  nivelesCssH3.textContent = "TORRE B";
+});
 
 //inicio
-carga("img/plantas/torreA.json")
+carga("img/plantas/torreA.json");
