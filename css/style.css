@@ -815,7 +815,11 @@ video {
 }
 
 .cuerpo #barraHome {
+<<<<<<< HEAD
   background: url(../img/barraLatHome.jpg);
+=======
+  background: url(img/barraLatHome.jpg);
+>>>>>>> 18469c60901a192583ae07ff0b5e59607842d910
   background-position: center bottom;
   background-size: cover;
 }
